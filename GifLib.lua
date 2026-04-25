@@ -14,7 +14,7 @@ end
 local function split(str)
     local t = {}
     for s in string.gmatch(str, "([^,]+)") do
-        table.insert(t, s:gsub("%s+", ""))
+        table.insert(t, (s:gsub("%s+", "")))
     end
     return t
 end
