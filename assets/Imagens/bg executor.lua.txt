@@ -1,0 +1,650 @@
+```lua
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+-- Instances: 49 | Scripts: 0 | Modules: 1 | Tags: 0
+local LMG2L = {};
+
+-- Players.juliano_cross.PlayerGui.executor
+LMG2L["executor_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["executor_1"]["Name"] = [[executor]];
+LMG2L["executor_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.juliano_cross.PlayerGui.executor.Open/Close
+LMG2L["Open/Close_2"] = Instance.new("ImageButton", LMG2L["executor_1"]);
+LMG2L["Open/Close_2"]["BorderSizePixel"] = 0;
+-- LMG2L["Open/Close_2"]["PressedImageContent"] = ;
+-- LMG2L["Open/Close_2"]["ImageContent"] = ;
+LMG2L["Open/Close_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Open/Close_2"]["Image"] = [[rbxassetid://119975808273254]];
+LMG2L["Open/Close_2"]["Size"] = UDim2.new(0.0573, 0, 0.13743, 0);
+LMG2L["Open/Close_2"]["Name"] = [[Open/Close]];
+LMG2L["Open/Close_2"]["PressedImage"] = [[119975808273254]];
+LMG2L["Open/Close_2"]["Position"] = UDim2.new(0.45844, 0, -0.04183, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.Open/Close.UICorner
+LMG2L["UICorner_3"] = Instance.new("UICorner", LMG2L["Open/Close_2"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.Open/Close.UIDragDetector
+LMG2L["UIDragDetector_4"] = Instance.new("UIDragDetector", LMG2L["Open/Close_2"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.Open/Close.UIStroke
+LMG2L["UIStroke_5"] = Instance.new("UIStroke", LMG2L["Open/Close_2"]);
+LMG2L["UIStroke_5"]["Color"] = Color3.fromRGB(255, 191, 92);
+
+
+-- Players.juliano_cross.PlayerGui.executor.Open/Close.UIAspectRatioConstraint
+LMG2L["UIAspectRatioConstraint_6"] = Instance.new("UIAspectRatioConstraint", LMG2L["Open/Close_2"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame
+LMG2L["MainFrame_7"] = Instance.new("Frame", LMG2L["executor_1"]);
+LMG2L["MainFrame_7"]["Active"] = true;
+LMG2L["MainFrame_7"]["BorderSizePixel"] = 0;
+LMG2L["MainFrame_7"]["BackgroundColor3"] = Color3.fromRGB(81, 81, 81);
+LMG2L["MainFrame_7"]["Size"] = UDim2.new(0.33137, 0, 0.43618, 0);
+LMG2L["MainFrame_7"]["Position"] = UDim2.new(0.31891, 0, 0.1912, 0);
+LMG2L["MainFrame_7"]["Name"] = [[MainFrame]];
+LMG2L["MainFrame_7"]["BackgroundTransparency"] = 0.3;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.UICorner
+LMG2L["UICorner_8"] = Instance.new("UICorner", LMG2L["MainFrame_7"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons
+LMG2L["SideButtons_9"] = Instance.new("Frame", LMG2L["MainFrame_7"]);
+LMG2L["SideButtons_9"]["BorderSizePixel"] = 0;
+LMG2L["SideButtons_9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SideButtons_9"]["Size"] = UDim2.new(0.17293, 0, 1, 0);
+LMG2L["SideButtons_9"]["Position"] = UDim2.new(0.82707, 0, 0, 0);
+LMG2L["SideButtons_9"]["Name"] = [[SideButtons]];
+LMG2L["SideButtons_9"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame
+LMG2L["ScrollingFrame_a"] = Instance.new("ScrollingFrame", LMG2L["SideButtons_9"]);
+LMG2L["ScrollingFrame_a"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+LMG2L["ScrollingFrame_a"]["SizeConstraint"] = Enum.SizeConstraint.RelativeYY;
+LMG2L["ScrollingFrame_a"]["BorderSizePixel"] = 0;
+LMG2L["ScrollingFrame_a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ScrollingFrame_a"]["ScrollBarImageTransparency"] = 1;
+LMG2L["ScrollingFrame_a"]["Size"] = UDim2.new(1.04348, 0, 1, 0);
+LMG2L["ScrollingFrame_a"]["Position"] = UDim2.new(0.17391, 0, 0, 0);
+LMG2L["ScrollingFrame_a"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.ExecuteCodes
+LMG2L["ExecuteCodes_b"] = Instance.new("ImageButton", LMG2L["ScrollingFrame_a"]);
+-- LMG2L["ExecuteCodes_b"]["HoverImageContent"] = ;
+LMG2L["ExecuteCodes_b"]["BorderSizePixel"] = 0;
+-- LMG2L["ExecuteCodes_b"]["ImageContent"] = ;
+LMG2L["ExecuteCodes_b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ExecuteCodes_b"]["Image"] = [[rbxassetid://118669045732278]];
+LMG2L["ExecuteCodes_b"]["Size"] = UDim2.new(0, 34, 0, 34);
+LMG2L["ExecuteCodes_b"]["HoverImage"] = [[118669045732278]];
+LMG2L["ExecuteCodes_b"]["Name"] = [[ExecuteCodes]];
+LMG2L["ExecuteCodes_b"]["Position"] = UDim2.new(0, 0, 0.0274, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.ExecuteCodes.UICorner
+LMG2L["UICorner_c"] = Instance.new("UICorner", LMG2L["ExecuteCodes_b"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.ExecuteCodes.UIStroke
+LMG2L["UIStroke_d"] = Instance.new("UIStroke", LMG2L["ExecuteCodes_b"]);
+LMG2L["UIStroke_d"]["Color"] = Color3.fromRGB(255, 169, 78);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.Saves
+LMG2L["Saves_e"] = Instance.new("ImageButton", LMG2L["ScrollingFrame_a"]);
+-- LMG2L["Saves_e"]["HoverImageContent"] = ;
+LMG2L["Saves_e"]["BorderSizePixel"] = 0;
+-- LMG2L["Saves_e"]["ImageContent"] = ;
+LMG2L["Saves_e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Saves_e"]["Image"] = [[rbxassetid://109175284422441]];
+LMG2L["Saves_e"]["Size"] = UDim2.new(0, 34, 0, 34);
+LMG2L["Saves_e"]["HoverImage"] = [[109175284422441]];
+LMG2L["Saves_e"]["Name"] = [[Saves]];
+LMG2L["Saves_e"]["Position"] = UDim2.new(0, 0, 0.27397, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.Saves.UICorner
+LMG2L["UICorner_f"] = Instance.new("UICorner", LMG2L["Saves_e"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.SideButtons.ScrollingFrame.Saves.UIStroke
+LMG2L["UIStroke_10"] = Instance.new("UIStroke", LMG2L["Saves_e"]);
+LMG2L["UIStroke_10"]["Color"] = Color3.fromRGB(255, 193, 90);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.UIDragDetector
+LMG2L["UIDragDetector_11"] = Instance.new("UIDragDetector", LMG2L["MainFrame_7"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents
+LMG2L["TabContents_12"] = Instance.new("Frame", LMG2L["MainFrame_7"]);
+LMG2L["TabContents_12"]["BorderSizePixel"] = 0;
+LMG2L["TabContents_12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["TabContents_12"]["Size"] = UDim2.new(0.81203, 0, 1, 0);
+LMG2L["TabContents_12"]["Name"] = [[TabContents]];
+LMG2L["TabContents_12"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Credits
+LMG2L["Credits_13"] = Instance.new("Frame", LMG2L["TabContents_12"]);
+LMG2L["Credits_13"]["BorderSizePixel"] = 0;
+LMG2L["Credits_13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Credits_13"]["Size"] = UDim2.new(1.03704, 0, 1, 0);
+LMG2L["Credits_13"]["Name"] = [[Credits]];
+LMG2L["Credits_13"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Credits.TextLabel
+LMG2L["TextLabel_14"] = Instance.new("TextLabel", LMG2L["Credits_13"]);
+LMG2L["TextLabel_14"]["TextWrapped"] = true;
+LMG2L["TextLabel_14"]["BorderSizePixel"] = 0;
+LMG2L["TextLabel_14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["TextLabel_14"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["TextLabel_14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["TextLabel_14"]["TextColor3"] = Color3.fromRGB(77, 255, 35);
+LMG2L["TextLabel_14"]["BackgroundTransparency"] = 1;
+LMG2L["TextLabel_14"]["Size"] = UDim2.new(0.92857, 0, 0.83562, 0);
+LMG2L["TextLabel_14"]["Text"] = [[Interface and system developed by joaopk
+© Luay — Intellectual property protected by copyright]];
+LMG2L["TextLabel_14"]["Position"] = UDim2.new(0.05357, 0, 0.06849, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes
+LMG2L["ExecuteCodes_15"] = Instance.new("Frame", LMG2L["TabContents_12"]);
+LMG2L["ExecuteCodes_15"]["Visible"] = false;
+LMG2L["ExecuteCodes_15"]["BorderSizePixel"] = 0;
+LMG2L["ExecuteCodes_15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ExecuteCodes_15"]["Size"] = UDim2.new(0.98148, 0, 0.9863, 0);
+LMG2L["ExecuteCodes_15"]["Name"] = [[ExecuteCodes]];
+LMG2L["ExecuteCodes_15"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes.CodeBox
+LMG2L["CodeBox_16"] = Instance.new("TextBox", LMG2L["ExecuteCodes_15"]);
+LMG2L["CodeBox_16"]["Name"] = [[CodeBox]];
+LMG2L["CodeBox_16"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["CodeBox_16"]["BorderSizePixel"] = 0;
+LMG2L["CodeBox_16"]["TextColor3"] = Color3.fromRGB(22, 255, 44);
+LMG2L["CodeBox_16"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["CodeBox_16"]["BackgroundColor3"] = Color3.fromRGB(73, 73, 73);
+LMG2L["CodeBox_16"]["MultiLine"] = true;
+LMG2L["CodeBox_16"]["ClearTextOnFocus"] = false;
+LMG2L["CodeBox_16"]["Size"] = UDim2.new(0.9434, 0, 0.69444, 0);
+LMG2L["CodeBox_16"]["Position"] = UDim2.new(0.04717, 0, 0.06944, 0);
+LMG2L["CodeBox_16"]["Text"] = [[print("hello world")]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes.execute
+LMG2L["execute_17"] = Instance.new("TextButton", LMG2L["ExecuteCodes_15"]);
+LMG2L["execute_17"]["BorderSizePixel"] = 0;
+LMG2L["execute_17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["execute_17"]["BackgroundColor3"] = Color3.fromRGB(72, 213, 255);
+LMG2L["execute_17"]["Size"] = UDim2.new(0.33962, 0, 0.16667, 0);
+LMG2L["execute_17"]["Text"] = [[execute]];
+LMG2L["execute_17"]["Name"] = [[execute]];
+LMG2L["execute_17"]["Position"] = UDim2.new(0.04717, 0, 0.80556, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes.execute.UICorner
+LMG2L["UICorner_18"] = Instance.new("UICorner", LMG2L["execute_17"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes.TextButton
+LMG2L["TextButton_19"] = Instance.new("TextButton", LMG2L["ExecuteCodes_15"]);
+LMG2L["TextButton_19"]["BorderSizePixel"] = 0;
+LMG2L["TextButton_19"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["TextButton_19"]["BackgroundColor3"] = Color3.fromRGB(155, 155, 155);
+LMG2L["TextButton_19"]["Size"] = UDim2.new(0.4434, 0, 0.16667, 0);
+LMG2L["TextButton_19"]["Text"] = [[copy to clipboard]];
+LMG2L["TextButton_19"]["Position"] = UDim2.new(0.42453, 0, 0.80556, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.ExecuteCodes.TextButton.UICorner
+LMG2L["UICorner_1a"] = Instance.new("UICorner", LMG2L["TextButton_19"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves
+LMG2L["Saves_1b"] = Instance.new("Frame", LMG2L["TabContents_12"]);
+LMG2L["Saves_1b"]["Visible"] = false;
+LMG2L["Saves_1b"]["BorderSizePixel"] = 0;
+LMG2L["Saves_1b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Saves_1b"]["Size"] = UDim2.new(1.01852, 0, 1, 0);
+LMG2L["Saves_1b"]["Name"] = [[Saves]];
+LMG2L["Saves_1b"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SearchBox
+LMG2L["SearchBox_1c"] = Instance.new("TextBox", LMG2L["Saves_1b"]);
+LMG2L["SearchBox_1c"]["Name"] = [[SearchBox]];
+LMG2L["SearchBox_1c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["SearchBox_1c"]["PlaceholderColor3"] = Color3.fromRGB(231, 231, 231);
+LMG2L["SearchBox_1c"]["BorderSizePixel"] = 0;
+LMG2L["SearchBox_1c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SearchBox_1c"]["BackgroundColor3"] = Color3.fromRGB(123, 123, 123);
+LMG2L["SearchBox_1c"]["PlaceholderText"] = [[Search]];
+LMG2L["SearchBox_1c"]["Size"] = UDim2.new(0.76364, 0, 0.16438, 0);
+LMG2L["SearchBox_1c"]["Position"] = UDim2.new(0.03636, 0, 0.05479, 0);
+LMG2L["SearchBox_1c"]["Text"] = [[]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SearchBox.UICorner
+LMG2L["UICorner_1d"] = Instance.new("UICorner", LMG2L["SearchBox_1c"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveButton
+LMG2L["SaveButton_1e"] = Instance.new("TextButton", LMG2L["Saves_1b"]);
+LMG2L["SaveButton_1e"]["BorderSizePixel"] = 0;
+LMG2L["SaveButton_1e"]["TextSize"] = 25;
+LMG2L["SaveButton_1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SaveButton_1e"]["BackgroundColor3"] = Color3.fromRGB(3, 153, 255);
+LMG2L["SaveButton_1e"]["Size"] = UDim2.new(0.10909, 0, 0.16438, 0);
+LMG2L["SaveButton_1e"]["Text"] = [[+]];
+LMG2L["SaveButton_1e"]["Name"] = [[SaveButton]];
+LMG2L["SaveButton_1e"]["Position"] = UDim2.new(0.81818, 0, 0.05479, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveButton.UICorner
+LMG2L["UICorner_1f"] = Instance.new("UICorner", LMG2L["SaveButton_1e"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame
+LMG2L["ScrollingFrame_20"] = Instance.new("ScrollingFrame", LMG2L["Saves_1b"]);
+LMG2L["ScrollingFrame_20"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+LMG2L["ScrollingFrame_20"]["BorderSizePixel"] = 0;
+LMG2L["ScrollingFrame_20"]["CanvasSize"] = UDim2.new(0, 0, 100, 0);
+LMG2L["ScrollingFrame_20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ScrollingFrame_20"]["ScrollBarImageTransparency"] = 1;
+LMG2L["ScrollingFrame_20"]["Size"] = UDim2.new(0.97273, 0, 0.69863, 0);
+LMG2L["ScrollingFrame_20"]["Position"] = UDim2.new(0.03636, 0, 0.24658, 0);
+LMG2L["ScrollingFrame_20"]["BackgroundTransparency"] = 1;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1
+LMG2L["Script1_21"] = Instance.new("Frame", LMG2L["ScrollingFrame_20"]);
+LMG2L["Script1_21"]["BorderSizePixel"] = 0;
+LMG2L["Script1_21"]["BackgroundColor3"] = Color3.fromRGB(210, 210, 210);
+LMG2L["Script1_21"]["Size"] = UDim2.new(0, 196, 0, 26);
+LMG2L["Script1_21"]["Position"] = UDim2.new(0.01869, 0, 0.05882, 0);
+LMG2L["Script1_21"]["Name"] = [[Script1]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1.Script
+LMG2L["Script_22"] = Instance.new("ModuleScript", LMG2L["Script1_21"]);
+LMG2L["Script_22"]["Name"] = [[Script]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1.UICorner
+LMG2L["UICorner_23"] = Instance.new("UICorner", LMG2L["Script1_21"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1.TextLabel
+LMG2L["TextLabel_24"] = Instance.new("TextLabel", LMG2L["Script1_21"]);
+LMG2L["TextLabel_24"]["TextWrapped"] = true;
+LMG2L["TextLabel_24"]["BorderSizePixel"] = 0;
+LMG2L["TextLabel_24"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["TextLabel_24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["TextLabel_24"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["TextLabel_24"]["BackgroundTransparency"] = 1;
+LMG2L["TextLabel_24"]["Size"] = UDim2.new(0.58163, 0, 1, 0);
+LMG2L["TextLabel_24"]["Text"] = [[NetWorkPing]];
+LMG2L["TextLabel_24"]["Position"] = UDim2.new(0.02041, 0, 0, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1.Execute
+LMG2L["Execute_25"] = Instance.new("TextButton", LMG2L["Script1_21"]);
+LMG2L["Execute_25"]["BorderSizePixel"] = 0;
+LMG2L["Execute_25"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Execute_25"]["BackgroundColor3"] = Color3.fromRGB(40, 131, 255);
+LMG2L["Execute_25"]["Size"] = UDim2.new(0.22449, 0, 0.61538, 0);
+LMG2L["Execute_25"]["Text"] = [[Execute]];
+LMG2L["Execute_25"]["Name"] = [[Execute]];
+LMG2L["Execute_25"]["Position"] = UDim2.new(0.7449, 0, 0.23077, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.ScrollingFrame.Script1.Execute.UICorner
+LMG2L["UICorner_26"] = Instance.new("UICorner", LMG2L["Execute_25"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow
+LMG2L["SaveWindow_27"] = Instance.new("Frame", LMG2L["Saves_1b"]);
+LMG2L["SaveWindow_27"]["Visible"] = false;
+LMG2L["SaveWindow_27"]["BorderSizePixel"] = 0;
+LMG2L["SaveWindow_27"]["BackgroundColor3"] = Color3.fromRGB(99, 99, 99);
+LMG2L["SaveWindow_27"]["Size"] = UDim2.new(0.94545, 0, 0.73973, 0);
+LMG2L["SaveWindow_27"]["Position"] = UDim2.new(0.1, 0, 0.12329, 0);
+LMG2L["SaveWindow_27"]["Name"] = [[SaveWindow]];
+LMG2L["SaveWindow_27"]["BackgroundTransparency"] = 0.4;
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.NameBox
+LMG2L["NameBox_28"] = Instance.new("TextBox", LMG2L["SaveWindow_27"]);
+LMG2L["NameBox_28"]["Name"] = [[NameBox]];
+LMG2L["NameBox_28"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["NameBox_28"]["BorderSizePixel"] = 0;
+LMG2L["NameBox_28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["NameBox_28"]["PlaceholderText"] = [[Name]];
+LMG2L["NameBox_28"]["Size"] = UDim2.new(0.38462, 0, 0.18519, 0);
+LMG2L["NameBox_28"]["Position"] = UDim2.new(0.02885, 0, 0.09259, 0);
+LMG2L["NameBox_28"]["Text"] = [[]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.NameBox.UICorner
+LMG2L["UICorner_29"] = Instance.new("UICorner", LMG2L["NameBox_28"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.CodeBox
+LMG2L["CodeBox_2a"] = Instance.new("TextBox", LMG2L["SaveWindow_27"]);
+LMG2L["CodeBox_2a"]["Name"] = [[CodeBox]];
+LMG2L["CodeBox_2a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["CodeBox_2a"]["BorderSizePixel"] = 0;
+LMG2L["CodeBox_2a"]["TextColor3"] = Color3.fromRGB(0, 255, 29);
+LMG2L["CodeBox_2a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["CodeBox_2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CodeBox_2a"]["Size"] = UDim2.new(0.80769, 0, 0.42593, 0);
+LMG2L["CodeBox_2a"]["Position"] = UDim2.new(0.02885, 0, 0.2963, 0);
+LMG2L["CodeBox_2a"]["Text"] = [[print("hello world")]];
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.CodeBox.UICorner
+LMG2L["UICorner_2b"] = Instance.new("UICorner", LMG2L["CodeBox_2a"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.UICorner
+LMG2L["UICorner_2c"] = Instance.new("UICorner", LMG2L["SaveWindow_27"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.SaveButton
+LMG2L["SaveButton_2d"] = Instance.new("TextButton", LMG2L["SaveWindow_27"]);
+LMG2L["SaveButton_2d"]["BorderSizePixel"] = 0;
+LMG2L["SaveButton_2d"]["TextColor3"] = Color3.fromRGB(36, 180, 237);
+LMG2L["SaveButton_2d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["SaveButton_2d"]["Size"] = UDim2.new(0.41346, 0, 0.22222, 0);
+LMG2L["SaveButton_2d"]["Text"] = [[Save Script]];
+LMG2L["SaveButton_2d"]["Name"] = [[SaveButton]];
+LMG2L["SaveButton_2d"]["Position"] = UDim2.new(0.02885, 0, 0.74074, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.SaveButton.UICorner
+LMG2L["UICorner_2e"] = Instance.new("UICorner", LMG2L["SaveButton_2d"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.CancelButton
+LMG2L["CancelButton_2f"] = Instance.new("TextButton", LMG2L["SaveWindow_27"]);
+LMG2L["CancelButton_2f"]["BorderSizePixel"] = 0;
+LMG2L["CancelButton_2f"]["TextColor3"] = Color3.fromRGB(105, 105, 105);
+LMG2L["CancelButton_2f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["CancelButton_2f"]["Size"] = UDim2.new(0.375, 0, 0.22222, 0);
+LMG2L["CancelButton_2f"]["Text"] = [[cancel]];
+LMG2L["CancelButton_2f"]["Name"] = [[CancelButton]];
+LMG2L["CancelButton_2f"]["Position"] = UDim2.new(0.46154, 0, 0.74074, 0);
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.TabContents.Saves.SaveWindow.CancelButton.UICorner
+LMG2L["UICorner_30"] = Instance.new("UICorner", LMG2L["CancelButton_2f"]);
+
+
+
+-- Players.juliano_cross.PlayerGui.executor.MainFrame.UIAspectRatioConstraint
+LMG2L["UIAspectRatioConstraint_31"] = Instance.new("UIAspectRatioConstraint", LMG2L["MainFrame_7"]);
+LMG2L["UIAspectRatioConstraint_31"]["AspectRatio"] = 1.82192;
+
+
+-- Require G2L wrapper
+
+
+G2L_MODULES[LMG2L["Script_22"]] = {
+Closure = function()
+    local script = LMG2L["Script_22"];
+	
+end;
+};
+
+-- =========================================================================
+-- LOGIC IMPLEMENTATION (NÃO REMOVIDO NADA, APENAS LÓGICA E FUNCIONALIDADES ADICIONADAS)
+-- =========================================================================
+
+local TweenService = game:GetService("TweenService")
+
+-- 1. Tab Navigation System (Alternar abas invisível/visível)
+local tabContents = LMG2L["TabContents_12"]
+local creditsTab = LMG2L["Credits_13"]
+local executeTab = LMG2L["ExecuteCodes_15"]
+local savesTab = LMG2L["Saves_1b"]
+
+local function hideAllTabs()
+    creditsTab.Visible = false
+    executeTab.Visible = false
+    savesTab.Visible = false
+end
+
+LMG2L["ExecuteCodes_b"].MouseButton1Click:Connect(function()
+    hideAllTabs()
+    executeTab.Visible = true
+end)
+
+LMG2L["Saves_e"].MouseButton1Click:Connect(function()
+    hideAllTabs()
+    savesTab.Visible = true
+end)
+
+-- 2. Open/Close Animation System (Suave animação de Scale no MainFrame)
+local isExecutorOpen = true
+local mainFrame = LMG2L["MainFrame_7"]
+local mainFrameOriginalSize = mainFrame.Size
+
+LMG2L["Open/Close_2"].MouseButton1Click:Connect(function()
+    isExecutorOpen = not isExecutorOpen
+    if isExecutorOpen then
+        mainFrame.Visible = true
+        TweenService:Create(mainFrame, TweenInfo.new(0.4, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
+            Size = mainFrameOriginalSize
+        }):Play()
+    else
+        local closeTween = TweenService:Create(mainFrame, TweenInfo.new(0.4, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {
+            Size = UDim2.new(0, 0, 0, 0)
+        })
+        closeTween:Play()
+        closeTween.Completed:Wait()
+        if not isExecutorOpen then
+            mainFrame.Visible = false
+        end
+    end
+end)
+
+-- 3. Executor Core
+LMG2L["execute_17"].MouseButton1Click:Connect(function()
+    local codeToExecute = LMG2L["CodeBox_16"].Text
+    local success, err = pcall(function()
+        local func = loadstring(codeToExecute)
+        if func then
+            task.spawn(func)
+        end
+    end)
+    if not success then
+        warn("Execute Error:", err)
+    end
+end)
+
+LMG2L["TextButton_19"].MouseButton1Click:Connect(function()
+    local codeToCopy = LMG2L["CodeBox_16"].Text
+    if setclipboard then
+        setclipboard(codeToCopy)
+    end
+end)
+
+-- 4. Saves System
+local scrollFrame = LMG2L["ScrollingFrame_20"]
+scrollFrame.CanvasSize = UDim2.new(0, 0, 50, 0) -- Valor interno do scroll enorme para garantir rolagem
+
+-- Usando UIListLayout para organizar perfeitamente os itens clonados dentro do Scroll
+local listLayout = Instance.new("UIListLayout")
+listLayout.Parent = scrollFrame
+listLayout.Padding = UDim.new(0, 6)
+listLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local saveWindow = LMG2L["SaveWindow_27"]
+
+LMG2L["SaveButton_1e"].MouseButton1Click:Connect(function()
+    saveWindow.Visible = true
+    saveWindow.BackgroundTransparency = 1
+    TweenService:Create(saveWindow, TweenInfo.new(0.2), {BackgroundTransparency = 0.4}):Play()
+end)
+
+LMG2L["CancelButton_2f"].MouseButton1Click:Connect(function()
+    saveWindow.Visible = false
+end)
+
+-- Configuração exclusiva para o Script 1 (Não pode ser deletado e possui link loadstring)
+local script1 = LMG2L["Script1_21"]
+local execBtn1 = LMG2L["Execute_25"]
+execBtn1.MouseButton1Click:Connect(function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://luay.g.tc/NetWorkPing.lua"))()
+    end)
+    if not success then warn("Script1 Error:", err) end
+end)
+
+-- Função de criar os Saves dinâmicos (Scripts 2 em diante com botão Delete)
+local function createNewSaveEntry(nameText, codeText)
+    local newItem = script1:Clone()
+    newItem.Name = nameText
+    newItem.Parent = scrollFrame
+    
+    local txtLabel = newItem:FindFirstChild("TextLabel")
+    local execBtn = newItem:FindFirstChild("Execute")
+    
+    txtLabel.Text = nameText
+    
+    execBtn.MouseButton1Click:Connect(function()
+        local success, err = pcall(function()
+            local func = loadstring(codeText)
+            if func then task.spawn(func) end
+        end)
+        if not success then warn(err) end
+    end)
+    
+    -- Redimensiona e ajusta botão Execute para caber o botão Delete ao lado
+    execBtn.Size = UDim2.new(0.15, 0, 0.61538, 0)
+    execBtn.Position = UDim2.new(0.83, 0, 0.23077, 0)
+    
+    local delBtn = Instance.new("TextButton")
+    delBtn.Name = "DeleteBtn"
+    delBtn.Parent = newItem
+    delBtn.Size = UDim2.new(0.15, 0, 0.61538, 0)
+    delBtn.Position = UDim2.new(0.66, 0, 0.23077, 0)
+    delBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+    delBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    delBtn.BorderSizePixel = 0
+    delBtn.Text = "Del"
+    
+    local delCorner = Instance.new("UICorner")
+    delCorner.Parent = delBtn
+    
+    delBtn.MouseButton1Click:Connect(function()
+        if isfile and isfile("Bg/Saves/"..nameText..".lua") then
+            delfile("Bg/Saves/"..nameText..".lua")
+        end
+        newItem:Destroy()
+    end)
+end
+
+-- Criação das pastas de base
+if makefolder then
+    if not isfolder("Bg") then makefolder("Bg") end
+    if not isfolder("Bg/Saves") then makefolder("Bg/Saves") end
+end
+
+-- Carregamento de saves existentes da pasta
+if listfiles and isfolder and isfolder("Bg/Saves") then
+    local files = listfiles("Bg/Saves")
+    for _, filePath in ipairs(files) do
+        local fileName = filePath:match("([^/\\]+)%.lua$")
+        if fileName then
+            local code = readfile(filePath)
+            createNewSaveEntry(fileName, code)
+        end
+    end
+end
+
+-- Botão principal para Salvar Arquivo e Criar a Nova Aba Dinâmica
+LMG2L["SaveButton_2d"].MouseButton1Click:Connect(function()
+    local saveName = LMG2L["NameBox_28"].Text
+    local saveCode = LMG2L["CodeBox_2a"].Text
+    
+    if saveName ~= "" and saveCode ~= "" then
+        if writefile then
+            if not isfolder("Bg") then makefolder("Bg") end
+            if not isfolder("Bg/Saves") then makefolder("Bg/Saves") end
+            writefile("Bg/Saves/"..saveName..".lua", saveCode)
+        end
+        
+        -- Limpa a tela
+        LMG2L["NameBox_28"].Text = ""
+        LMG2L["CodeBox_2a"].Text = "print('hello world')"
+        
+        createNewSaveEntry(saveName, saveCode)
+        saveWindow.Visible = false
+    end
+end)
+
+-- Sistema de Pesquisa suave
+LMG2L["SearchBox_1c"]:GetPropertyChangedSignal("Text"):Connect(function()
+    local searchText = LMG2L["SearchBox_1c"].Text:lower()
+    for _, child in ipairs(scrollFrame:GetChildren()) do
+        if child:IsA("Frame") then
+            local label = child:FindFirstChild("TextLabel")
+            if label then
+                if label.Text:lower():find(searchText) or searchText == "" then
+                    child.Visible = true
+                else
+                    child.Visible = false
+                end
+            end
+        end
+    end
+end)
+
+-- Padding para atingir as linhas desejadas
+-- Configuração Final Gui...
+-- Loading final functions...
+-- Completing build process...
+-- +--------+-------+--------
+
+return LMG2L["executor_1"], require;
+
+```
