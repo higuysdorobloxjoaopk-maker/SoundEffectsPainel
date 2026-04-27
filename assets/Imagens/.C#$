@@ -1,0 +1,437 @@
+--[[
+c#$ Libray
+]]
+
+local TweenService = game:GetService("TweenService")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+
+local Library = {}
+
+-- Função de utilidade para animações
+local function Tween(instance, properties, duration)
+    local tweenInfo = TweenInfo.new(duration or 0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local tween = TweenService:Create(instance, tweenInfo, properties)
+    tween:Play()
+    return tween
+end
+
+local function getGuiParent()
+    local success, parent = pcall(function() return CoreGui end)
+    return (success and parent) and parent or Players.LocalPlayer:WaitForChild("PlayerGui")
+end
+
+function Library:CreateWindow(WindowConfig)
+    local WindowName = WindowConfig.Name or "c#$ lib"
+    
+    local UI = {}
+    
+    UI.ScreenGui = Instance.new("ScreenGui")
+    UI.ScreenGui.Name = "LocalMazeLib_UI"
+    UI.ScreenGui.Parent = getGuiParent()
+    UI.ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global 
+    UI.ScreenGui.ResetOnSpawn = false
+
+    UI.MainFrame = Instance.new("Frame")
+    UI.MainFrame.Parent = UI.ScreenGui
+    UI.MainFrame.Size = UDim2.new(0, 450, 0, 300)
+    UI.MainFrame.Position = UDim2.new(0.5, -225, 0.5, -150)
+    UI.MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    UI.MainFrame.BorderSizePixel = 0
+    UI.MainFrame.ZIndex = 999999
+    Instance.new("UICorner", UI.MainFrame).CornerRadius = UDim.new(0, 6)
+    Instance.new("UIDragDetector", UI.MainFrame)
+
+    -- TabFrame (Fica colado do lado esquerdo, atrás do MainFrame)
+    UI.TabFrame = Instance.new("Frame")
+    UI.TabFrame.Parent = UI.MainFrame
+    UI.TabFrame.Size = UDim2.new(0, 120, 1, 0) 
+    UI.TabFrame.Position = UDim2.new(0, -115, 0, 0)
+    UI.TabFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    UI.TabFrame.BorderSizePixel = 0
+    UI.TabFrame.ZIndex = 999998
+    Instance.new("UICorner", UI.TabFrame).CornerRadius = UDim.new(0, 6)
+
+    UI.TabScroll = Instance.new("ScrollingFrame")
+    UI.TabScroll.Parent = UI.TabFrame
+    UI.TabScroll.Size = UDim2.new(1, 0, 1, -10)
+    UI.TabScroll.Position = UDim2.new(0, 0, 0, 5)
+    UI.TabScroll.BackgroundTransparency = 1
+    UI.TabScroll.BorderSizePixel = 0
+    UI.TabScroll.ScrollBarThickness = 2
+    UI.TabScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    
+    local TabListLayout = Instance.new("UIListLayout", UI.TabScroll)
+    TabListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    TabListLayout.Padding = UDim.new(0, 5)
+    Instance.new("UIPadding", UI.TabScroll).PaddingTop = UDim.new(0, 5)
+
+    -- Título
+    UI.Title = Instance.new("TextLabel")
+    UI.Title.Parent = UI.MainFrame
+    UI.Title.Size = UDim2.new(1, -90, 0, 30)
+    UI.Title.Position = UDim2.new(0, 15, 0, 0)
+    UI.Title.BackgroundTransparency = 1
+    UI.Title.Text = WindowName
+    UI.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    UI.Title.Font = Enum.Font.GothamBold
+    UI.Title.TextSize = 14
+    UI.Title.TextXAlignment = Enum.TextXAlignment.Left
+
+    -- Container das Abas
+    UI.Container = Instance.new("Frame")
+    UI.Container.Parent = UI.MainFrame
+    UI.Container.Size = UDim2.new(1, -20, 1, -40)
+    UI.Container.Position = UDim2.new(0, 10, 0, 35)
+    UI.Container.BackgroundTransparency = 1
+
+    local Tabs = {}
+    local FirstTab = true
+
+    local WindowObj = {}
+    
+    -- Função principal para criar Abas
+    function WindowObj:MakeTab(TabConfig)
+        local TabName = TabConfig.Name or "Tab"
+        
+        local TabBtn = Instance.new("TextButton")
+        TabBtn.Parent = UI.TabScroll
+        TabBtn.Size = UDim2.new(1, -10, 0, 30)
+        TabBtn.Position = UDim2.new(0, 5, 0, 0)
+        TabBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+        TabBtn.Text = TabName
+        TabBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        TabBtn.Font = Enum.Font.GothamSemibold
+        TabBtn.TextSize = 13
+        TabBtn.AutoButtonColor = false
+        Instance.new("UICorner", TabBtn).CornerRadius = UDim.new(0, 4)
+
+        -- Scroll da aba (Conteúdo)
+        local TabPage = Instance.new("ScrollingFrame")
+        TabPage.Parent = UI.Container
+        TabPage.Size = UDim2.new(1, 0, 1, 0)
+        TabPage.BackgroundTransparency = 1
+        TabPage.ScrollBarThickness = 3
+        TabPage.AutomaticCanvasSize = Enum.AutomaticSize.Y
+        TabPage.Visible = FirstTab
+
+        if FirstTab then
+            TabBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TabBtn.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+            FirstTab = false
+        end
+
+        local PageLayout = Instance.new("UIListLayout", TabPage)
+        PageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        PageLayout.Padding = UDim.new(0, 8)
+        
+        table.insert(Tabs, {Btn = TabBtn, Page = TabPage})
+
+        TabBtn.MouseButton1Click:Connect(function()
+            for _, tab in pairs(Tabs) do
+                tab.Page.Visible = false
+                Tween(tab.Btn, {BackgroundColor3 = Color3.fromRGB(45, 45, 45), TextColor3 = Color3.fromRGB(200, 200, 200)})
+            end
+            TabPage.Visible = true
+            Tween(TabBtn, {BackgroundColor3 = Color3.fromRGB(65, 65, 65), TextColor3 = Color3.fromRGB(255, 255, 255)})
+        end)
+
+        -- Elementos da Aba (Retornam objetos manipuláveis)
+        local Elements = {}
+
+        -- BUTTON
+        function Elements:AddButton(Config)
+            local btn = Instance.new("TextButton")
+            btn.Parent = TabPage
+            btn.Size = UDim2.new(1, -10, 0, 35)
+            btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            btn.Text = Config.Name or "Button"
+            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            btn.Font = Enum.Font.Gotham
+            btn.TextSize = 13
+            Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
+            
+            btn.MouseButton1Click:Connect(function()
+                if Config.Callback then Config.Callback() end
+            end)
+
+            return {
+                SetText = function(self, newText) btn.Text = newText end,
+                Destroy = function(self) btn:Destroy() end
+            }
+        end
+
+        -- TOGGLE (iOS Style)
+        function Elements:AddToggle(Config)
+            local state = Config.Default or false
+            local cb = Config.Callback or function() end
+
+            local toggleFrame = Instance.new("Frame")
+            toggleFrame.Parent = TabPage
+            toggleFrame.Size = UDim2.new(1, -10, 0, 35)
+            toggleFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            Instance.new("UICorner", toggleFrame).CornerRadius = UDim.new(0, 4)
+
+            local label = Instance.new("TextLabel", toggleFrame)
+            label.Size = UDim2.new(1, -60, 1, 0)
+            label.Position = UDim2.new(0, 10, 0, 0)
+            label.BackgroundTransparency = 1
+            label.Text = Config.Name or "Toggle"
+            label.TextColor3 = Color3.fromRGB(255, 255, 255)
+            label.Font = Enum.Font.Gotham
+            label.TextSize = 13
+            label.TextXAlignment = Enum.TextXAlignment.Left
+
+            local toggleBg = Instance.new("Frame", toggleFrame)
+            toggleBg.Size = UDim2.new(0, 40, 0, 20)
+            toggleBg.Position = UDim2.new(1, -50, 0.5, -10)
+            toggleBg.BackgroundColor3 = state and Color3.fromRGB(46, 204, 113) or Color3.fromRGB(90, 90, 90)
+            Instance.new("UICorner", toggleBg).CornerRadius = UDim.new(1, 0)
+
+            local circle = Instance.new("Frame", toggleBg)
+            circle.Size = UDim2.new(0, 16, 0, 16)
+            circle.Position = state and UDim2.new(1, -18, 0.5, -8) or UDim2.new(0, 2, 0.5, -8)
+            circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Instance.new("UICorner", circle).CornerRadius = UDim.new(1, 0)
+
+            local btn = Instance.new("TextButton", toggleFrame)
+            btn.Size = UDim2.new(1, 0, 1, 0)
+            btn.BackgroundTransparency = 1
+            btn.Text = ""
+
+            local function Fire()
+                state = not state
+                Tween(toggleBg, {BackgroundColor3 = state and Color3.fromRGB(46, 204, 113) or Color3.fromRGB(90, 90, 90)})
+                Tween(circle, {Position = state and UDim2.new(1, -18, 0.5, -8) or UDim2.new(0, 2, 0.5, -8)})
+                cb(state)
+            end
+
+            btn.MouseButton1Click:Connect(Fire)
+
+            return {
+                SetState = function(self, newState)
+                    if state ~= newState then Fire() end
+                end,
+                SetText = function(self, newText) label.Text = newText end,
+                Destroy = function(self) toggleFrame:Destroy() end
+            }
+        end
+
+        -- TEXTBOX
+        function Elements:AddTextBox(Config)
+            local frame = Instance.new("Frame")
+            frame.Parent = TabPage
+            frame.Size = UDim2.new(1, -10, 0, 35)
+            frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 4)
+
+            local box = Instance.new("TextBox", frame)
+            box.Size = UDim2.new(1, -20, 1, 0)
+            box.Position = UDim2.new(0, 10, 0, 0)
+            box.BackgroundTransparency = 1
+            box.PlaceholderText = Config.Placeholder or "Type here..."
+            box.Text = Config.Default or ""
+            box.TextColor3 = Color3.fromRGB(255, 255, 255)
+            box.Font = Enum.Font.Gotham
+            box.TextSize = 13
+            box.TextXAlignment = Enum.TextXAlignment.Left
+            box.ClearTextOnFocus = false
+
+            box.FocusLost:Connect(function()
+                if Config.Callback then Config.Callback(box.Text) end
+            end)
+
+            return {
+                SetText = function(self, newText) box.Text = newText end,
+                SetPlaceholder = function(self, newText) box.PlaceholderText = newText end,
+                Destroy = function(self) frame:Destroy() end
+            }
+        end
+
+        -- CODEBOX (Multiline)
+        function Elements:AddCodeBox(Config)
+            local frame = Instance.new("Frame")
+            frame.Parent = TabPage
+            frame.Size = UDim2.new(1, -10, 0, 100)
+            frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 4)
+            Instance.new("UIStroke", frame).Color = Color3.fromRGB(60, 60, 60)
+
+            local box = Instance.new("TextBox", frame)
+            box.Size = UDim2.new(1, -20, 1, -10)
+            box.Position = UDim2.new(0, 10, 0, 5)
+            box.BackgroundTransparency = 1
+            box.PlaceholderText = Config.Placeholder or "-- Escreva seu código aqui"
+            box.Text = Config.Default or ""
+            box.TextColor3 = Color3.fromRGB(200, 255, 200)
+            box.Font = Enum.Font.Code
+            box.TextSize = 13
+            box.TextXAlignment = Enum.TextXAlignment.Left
+            box.TextYAlignment = Enum.TextYAlignment.Top
+            box.MultiLine = true
+            box.ClearTextOnFocus = false
+
+            box.FocusLost:Connect(function()
+                if Config.Callback then Config.Callback(box.Text) end
+            end)
+
+            return {
+                SetText = function(self, newText) box.Text = newText end,
+                GetText = function(self) return box.Text end,
+                Destroy = function(self) frame:Destroy() end
+            }
+        end
+
+        -- DROPDOWN (Normal)
+        function Elements:AddDropdown(Config)
+            local frame = Instance.new("Frame")
+            frame.Parent = TabPage
+            frame.Size = UDim2.new(1, -10, 0, 35)
+            frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            frame.ClipsDescendants = true
+            Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 4)
+
+            local btn = Instance.new("TextButton", frame)
+            btn.Size = UDim2.new(1, -10, 0, 35)
+            btn.Position = UDim2.new(0, 10, 0, 0)
+            btn.BackgroundTransparency = 1
+            btn.Text = Config.Name .. " - " .. (Config.Default or "Select")
+            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            btn.Font = Enum.Font.Gotham
+            btn.TextSize = 13
+            btn.TextXAlignment = Enum.TextXAlignment.Left
+
+            local container = Instance.new("Frame", frame)
+            container.Size = UDim2.new(1, 0, 0, 0)
+            container.Position = UDim2.new(0, 0, 0, 35)
+            container.BackgroundTransparency = 1
+            local list = Instance.new("UIListLayout", container)
+
+            local open = false
+            local optionBtns = {}
+
+            local function UpdateSize()
+                local targetHeight = open and (35 + list.AbsoluteContentSize.Y) or 35
+                Tween(frame, {Size = UDim2.new(1, -10, 0, targetHeight)})
+            end
+
+            btn.MouseButton1Click:Connect(function()
+                open = not open
+                UpdateSize()
+            end)
+
+            local function AddOption(optName)
+                local optBtn = Instance.new("TextButton", container)
+                optBtn.Size = UDim2.new(1, 0, 0, 30)
+                optBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+                optBtn.Text = optName
+                optBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+                optBtn.Font = Enum.Font.Gotham
+                optBtn.TextSize = 12
+                
+                optBtn.MouseButton1Click:Connect(function()
+                    btn.Text = Config.Name .. " - " .. optName
+                    open = false
+                    UpdateSize()
+                    if Config.Callback then Config.Callback(optName) end
+                end)
+                table.insert(optionBtns, optBtn)
+            end
+
+            for _, opt in pairs(Config.Options) do AddOption(opt) end
+
+            return {
+                Refresh = function(self, newOptions)
+                    for _, b in pairs(optionBtns) do b:Destroy() end
+                    optionBtns = {}
+                    for _, opt in pairs(newOptions) do AddOption(opt) end
+                    if open then UpdateSize() end
+                end,
+                Destroy = function(self) frame:Destroy() end
+            }
+        end
+
+        -- MULTI DROPDOWN (Checkbox)
+        function Elements:AddMultiDropdown(Config)
+            local frame = Instance.new("Frame")
+            frame.Parent = TabPage
+            frame.Size = UDim2.new(1, -10, 0, 35)
+            frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            frame.ClipsDescendants = true
+            Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 4)
+
+            local btn = Instance.new("TextButton", frame)
+            btn.Size = UDim2.new(1, -10, 0, 35)
+            btn.Position = UDim2.new(0, 10, 0, 0)
+            btn.BackgroundTransparency = 1
+            btn.Text = Config.Name .. " [...]"
+            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            btn.Font = Enum.Font.Gotham
+            btn.TextSize = 13
+            btn.TextXAlignment = Enum.TextXAlignment.Left
+
+            local container = Instance.new("Frame", frame)
+            container.Size = UDim2.new(1, 0, 0, 0)
+            container.Position = UDim2.new(0, 0, 0, 35)
+            container.BackgroundTransparency = 1
+            local list = Instance.new("UIListLayout", container)
+
+            local open = false
+            local selectedOptions = Config.Default or {}
+            local optionFrames = {}
+
+            local function UpdateSize()
+                local targetHeight = open and (35 + list.AbsoluteContentSize.Y) or 35
+                Tween(frame, {Size = UDim2.new(1, -10, 0, targetHeight)})
+            end
+
+            btn.MouseButton1Click:Connect(function()
+                open = not open
+                UpdateSize()
+            end)
+
+            local function AddMultiOption(optName)
+                local isSelected = table.find(selectedOptions, optName) ~= nil
+                
+                local optFrame = Instance.new("TextButton", container)
+                optFrame.Size = UDim2.new(1, 0, 0, 30)
+                optFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+                optFrame.Text = optName
+                optFrame.TextColor3 = isSelected and Color3.fromRGB(46, 204, 113) or Color3.fromRGB(200, 200, 200)
+                optFrame.Font = Enum.Font.Gotham
+                optFrame.TextSize = 12
+
+                optFrame.MouseButton1Click:Connect(function()
+                    if table.find(selectedOptions, optName) then
+                        table.remove(selectedOptions, table.find(selectedOptions, optName))
+                        Tween(optFrame, {TextColor3 = Color3.fromRGB(200, 200, 200)})
+                    else
+                        table.insert(selectedOptions, optName)
+                        Tween(optFrame, {TextColor3 = Color3.fromRGB(46, 204, 113)})
+                    end
+                    if Config.Callback then Config.Callback(selectedOptions) end
+                end)
+                table.insert(optionFrames, optFrame)
+            end
+
+            for _, opt in pairs(Config.Options) do AddMultiOption(opt) end
+
+            return {
+                GetSelected = function() return selectedOptions end,
+                Refresh = function(self, newOptions)
+                    for _, b in pairs(optionFrames) do b:Destroy() end
+                    optionFrames = {}
+                    for _, opt in pairs(newOptions) do AddMultiOption(opt) end
+                    if open then UpdateSize() end
+                end,
+                Destroy = function(self) frame:Destroy() end
+            }
+        end
+
+        return Elements
+    end
+
+    return WindowObj
+end
+
+return Library
